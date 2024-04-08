@@ -1,0 +1,309 @@
+<!-- Customize (don't change the ones you want to stay the same) the values declared in the first four lines and then paste the following into your Custom Footer section -->
+
+<script>
+  
+  //Hide update divs
+  
+  $('div.updates.font-regular').each(function() {
+  
+  $(this).hide();
+  
+  });
+  
+  //Hide historical update divs
+  
+  $('div.updates-container').each(function() {
+  
+  $(this).hide();
+  
+  });
+  
+  $('div.message.incident-body.color-primary').each(function() {
+  
+  $(this).hide();
+  
+  });
+  
+	$(function() {
+		var operationalText = "Operational"
+		var degradedText = "Limited Business Impact"
+		var partialText = "Degradation"
+		var majorText = "Outage"
+var operational = "No Service Degradation Reported"
+		var newText = function(str) {
+		if (str.indexOf('Low') != -1) {
+			return str.replace('Low', 'ES3');
+		}
+if (str.indexOf('Medium') != -1) {
+			return str.replace('Medium', 'ES3');
+		}
+		if (str.indexOf('High') != -1) {
+			return str.replace('High', 'ES2');
+		}
+		if (str.indexOf('Critical') != -1) {
+			return str.replace('Critical', 'ES1');
+		} 
+		if (str.indexOf('Upgrade') != -1) {
+			return str.replace('Upgrade', 'Update');
+		}
+		if (str.indexOf('Operational') != -1) {
+			return str.replace('Operational', operationalText);
+		}
+if (str.indexOf('All Systems Operational') != -1) {
+			return str.replace('All Systems Operational', operational);
+		}
+		if (str.indexOf('Degraded Performance') != -1) {
+			return str.replace('Degraded Performance', degradedText);
+		}
+		if (str.indexOf('Partial Outage') != -1) {
+			return str.replace('Partial Outage', partialText);
+		}
+		if (str.indexOf('Major Outage') != -1) {
+			return str.replace('Major Outage', majorText);
+		}
+		}
+		$('.legend-item').each(function() {
+			var $this = $(this);
+			var $html = $this.html();
+			$this.html(newText($html));
+		});
+		$('.component-inner-container .component-status').each(function() {
+			var $this = $(this);
+			var $html = $this.html();
+			$this.html(newText($html));
+		});
+    
+		$('a.actual-title.with-ellipsis').each(function() {
+			var $this = $(this);
+			var $html = $this.html();
+			$this.html(newText($html));
+		});
+
+    
+	});
+  
+  /*
+$(function() {
+		$('.components-container').toggleClass('one-column').toggleClass('two-columns')
+	});
+  */
+  
+  //Prevent auto expanding of the component groups
+  
+  $(function() {
+    
+    $('.open').each(function() {
+      
+      $(this).removeClass('open');
+      
+    });
+    
+    $('.fa-minus-square-o').each(function() {
+    
+    $(this).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
+    
+    });
+    
+
+  });
+  
+  //Set div IDs based on incident id (pulled from href)
+    
+  var $incidents = $('div.unresolved-incident').length;
+  
+  for (let i = 0; i < $incidents; i++) {
+    
+    setTimeout(function() {
+    
+    var $node = $('div.unresolved-incident')[i];
+    
+    var $linkNode = $node.childNodes[1].childNodes[1];
+    
+    var $updateNode = $node.childNodes[3];
+    
+    var $incidentId = $linkNode.href.split('/')[4]
+    
+    //Remove href link and make it void
+    
+    $linkNode.href = "javascript:void(0)";
+    
+    $($updateNode).attr('id', $incidentId);
+    
+    $($linkNode).attr('id', $incidentId + "-link");
+    
+    $("#" + $incidentId + "-link").click(function(){
+      
+      if ($("#" + $incidentId).is(":hidden")) {
+      
+      $("#" + $incidentId).slideDown("slow");
+        
+        $($node).addClass('add-shadow');
+        
+      } else {
+        
+       $("#" + $incidentId).slideUp("slow");
+        
+        $($node).removeClass('add-shadow');
+        
+      }
+      
+    });
+      
+    }, 500);
+    
+  }
+  
+  var $prevIncidents = $('div.incident-container').length;
+  
+  for (let i = 0; i < $prevIncidents; i++) {
+    
+    setTimeout(function() {
+    
+      //console.log($('div.unresolved-incident')[i]);
+    
+    var $node = $('div.incident-container')[i];
+    
+    var $linkNode = $node.childNodes[1].childNodes[1];
+    
+    var $updateNode = $node.childNodes[3];
+    
+    var $incidentId = $linkNode.href.split('/')[4]
+    
+    $linkNode.href = "javascript:void(0)";
+    
+    $($updateNode).attr('id', $incidentId);
+    
+    $($linkNode).attr('id', $incidentId + "-link");
+    
+    $("#" + $incidentId + "-link").click(function(){
+      
+      if ($("#" + $incidentId).is(":hidden")) {
+      
+      $("#" + $incidentId).slideDown("slow");
+        
+      $($node).addClass("add-shadow");
+        
+      } else {
+        
+       $("#" + $incidentId).slideUp("slow");
+        
+        $($node).removeClass("add-shadow");
+        
+      }
+      
+    });
+    
+      //console.log($updateNode);
+    
+      //console.log($incidentId);
+      
+    }, 500);
+    
+  }
+    var $histIncidents = $('div.incident-data.incident-container').length;
+  
+  for (let i = 0; i < $histIncidents; i++) {
+    
+    setTimeout(function() {
+    
+    var $node = $('div.incident-data.incident-container')[i];
+    
+    var $linkNode = $node.childNodes[0];
+    
+    var $updateNode = $node.childNodes[1];
+    
+    var $incidentId = $linkNode.href.split('/')[4]
+    
+    $linkNode.href = "javascript:void(0)";
+    
+    $($updateNode).attr('id', $incidentId);
+    
+    $($linkNode).attr('id', $incidentId + "-link");
+    
+    $("#" + $incidentId + "-link").click(function(){
+      
+      if ($("#" + $incidentId).is(":hidden")) {
+      
+      $("#" + $incidentId).slideDown("slow");
+        
+      $($node).addClass("add-shadow");
+        
+      } else {
+        
+       $("#" + $incidentId).slideUp("slow");
+        
+        $($node).removeClass("add-shadow");
+        
+      }
+      
+    });
+    
+      //console.log($updateNode);
+    
+      //console.log($incidentId);
+      
+    }, 500);
+    
+  }
+  
+  //Hide incidents that are minor if major outages are present.
+  
+  /*
+  
+  var $impactMinor = $('div.unresolved-incident.impact-minor');
+    
+  var $impactMajor = $('div.unresolved-incident.impact-major');
+    
+  var impactCritical = $('div.unresolved-incident.impact-critical');
+    
+    $impactMinor.each(function() {
+      
+      $(this).addClass('visible');
+      
+    });
+    
+    if ($impactMajor.length > 0) {
+      
+      $($impactMinor).each(function() {
+        
+        var $this = $(this);
+        
+        $this.addClass("fade-out");
+       
+        setTimeout(function(){
+        
+           $this.hide();
+        
+        },1500);
+         
+       
+        
+      });
+      
+    }
+    
+    if (impactCritical.length > 0) {
+      
+      $($impactMinor).each(function() {
+        
+        var $this = $(this);
+        
+        $this.addClass("fade-out");
+       
+        setTimeout(function(){
+        
+           $this.hide();
+        
+        },1500);
+         
+       
+        
+      });
+      
+    }
+     
+  */
+  // });
+  
+  
+</script>
