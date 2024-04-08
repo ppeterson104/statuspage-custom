@@ -1,0 +1,204 @@
+#show-updates-dropdown {
+
+  background-color: #2D6F9C;
+  transition: 0.5s;
+}
+
+
+#show-updates-dropdown:hover {
+
+  
+  background-color: #3498DB;
+  transition: 0.5s;
+  
+  
+}
+
+.cai-heading {
+ 
+  margin:0!important;
+  
+}
+
+
+div.page-status-none {
+ 
+  background-color: #2D6F9C!important;
+  
+}
+
+.shared-partial.uptime-90-days-wrapper {
+ 
+  display: none!important;
+  
+}
+
+.availability-time-line-graphic {
+  
+ display: none!important;
+  
+}
+
+div .legend {
+ 
+  display:none!important;
+  
+}
+
+<!-- Start Table CSS -->
+
+.cai-table {
+ 
+ margin-top: 10px;
+ border-bottom: none;
+ border-top: 1px solid #CCCCCC;
+ border-left: 1px solid #CCCCCC;
+ border-right: 1px solid #CCCCCC;
+ border-collapse: collapse;
+  
+}
+
+table.cai-table tr:first-child {
+ 
+ border-top: 1px solid #CCCCCC;
+  
+}
+
+table.cai-table tr {
+ 
+ border-left: 1px solid #CCCCCC;
+ border-right: 1px solid #CCCCCC;
+  
+  
+}
+
+table.cai-table tr:last-child {
+ 
+border-radius: 4px;
+  
+}
+
+table.cai-table tr:not(:first-child) {
+  
+ border-bottom: 1px solid #CCCCCC;
+  
+}
+
+table.cai-table th {
+  
+ background-color: #EEEEEE;
+ text-align: center;
+ padding: 5px;
+  
+}
+
+table.cai-table tr:not(.tablehead):hover {
+  
+background-color: #2D6F9C;
+color: white;
+   box-shadow:-webkit-box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6);
+-moz-box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6);
+box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6);
+  
+}
+
+<!-- End Table CSS -->
+
+.hide {
+ 
+  display: none!important;
+  
+}
+
+div.incident-container {
+ 
+  padding: 10px!important;
+  border: 1px solid;
+  border-radius: 5px;
+  
+}
+
+div.unresolved-incident:hover, div.incident-container:hover:not(.incident-data) {
+ 
+  box-shadow:-webkit-box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6);
+-moz-box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6);
+box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6);
+  transition: 0.2s;
+}
+
+.add-shadow {
+  
+    box-shadow:-webkit-box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6)!important;
+-moz-box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6)!important;
+box-shadow: 0px 4px 5px 1px rgba(127,128,132,.6)!important;
+  transition: 0.2s;
+  
+}
+
+div.unresolved-incident {
+ 
+  box-shadow:-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+  transition: 0.2s;
+  border: 1px solid;
+  border-color: inherit;
+}
+
+.layout-content.status.status-index .unresolved-incident .updates, .layout-content.status.status-index .scheduled-incidents-container {
+ 
+  border:none!important;
+  
+}
+
+/*
+
+ div.updates.font-regular {
+ 
+  display:none!important;
+  
+}
+
+*/
+
+.visible.fade-out {
+ 
+  opacity:0;
+  
+}
+
+.hide {
+ 
+  display:none!important;
+  
+}
+
+.visible {
+ 
+  -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -ms-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+     opacity: 1;
+  
+}
+
+div.incident-data.incident-container h3 {
+ 
+  font-size:16px;
+  
+}
+
+
+/*
+
+div.impact-minor {
+ 
+  display:none!important;
+  
+}
+
+*/
+  
+
+/* Break Here */
